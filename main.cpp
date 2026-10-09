@@ -56,5 +56,31 @@ int main()
 
     cout << endl;
     cout << "Phase3 -> One-letter abbreviation: " << abbreviated << endl;
+    
+    int start = gene.find("AUG");
+
+    cout << "Phase4 -> From first AUG: ";
+
+    if (start == -1)
+    {
+        cout << "no AUG found" << endl;
+    }
+    else
+    {
+        string fromStart = "";
+
+        for (int i = start; i + 3 <= gene.length(); i += 3)
+        {
+            string group = code[gene.substr(i, 3)];
+            if (group == "Stop")
+                break;
+            cout << group << " ";
+            fromStart += letter[group];
+        }
+
+        cout << "(" << fromStart << ")" << endl;
+    }
+
+
     return 0;
 }
